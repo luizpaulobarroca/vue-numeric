@@ -315,7 +315,11 @@ export default {
      * Handle input event.
      */
     onInputHandler () {
-      this.process(this.amountNumber)
+      if(this.$refs.numeric.value.includes(".")) {
+        this.process(parseFloat(this.$refs.numeric.value))
+      } else {
+        this.process(this.amountNumber)
+      }
     },
 
     /**
